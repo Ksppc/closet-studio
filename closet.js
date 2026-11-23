@@ -55,6 +55,9 @@
     '<h2 class="cs-h">Dress it on a model</h2>' +
     '<p class="cs-sub">Shoot the piece, pick a vibe, send it to <b>Closet In</b>. ' +
     'The finished model photos come back in <b>Closet Out</b>.</p>' +
+    '<p class="cs-tip"><b>For the best model photo:</b> hang it on a door or lay it flat on a ' +
+    'light, plain surface, in daylight, shot straight on with the whole piece in frame and no ' +
+    'wrinkles. Hood up/out, buttons done.</p>' +
     '<div class="cs-label">Vibe <span id="csVibeName"></span></div>' +
     '<div class="cs-chips" id="csChips"></div>' +
     '<button class="cs-more" id="csMore" type="button">Show all 76 vibes</button>' +
