@@ -82,7 +82,7 @@
     '</div>' +
     '<button class="big primary cs-send" id="csSend" type="button">Send to Closet In</button>' +
     '<p class="cs-hint" id="csHint">In the share menu pick <b>Drive</b>, then choose the folder ' +
-    '<b>Closet Studio › Closet In</b> and tap <b>Upload</b>.</p>' +
+    '<b>ReLoved › Closet In</b> and tap <b>Upload</b>.</p>' +
     '<button class="cs-link cs-fallback" id="csDownload" type="button" hidden>' +
     'Sharing isn’t available here. Download instead (this saves copies on the phone)</button>' +
     "</div>";
