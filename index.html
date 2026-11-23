@@ -124,6 +124,10 @@
 </main>
 <div id="busy" hidden><div class="spin"></div><div id="status"></div></div>
 <div id="toast" hidden></div>
+<script>
+  // Plain white background for every photo (owner's rule). Set before app.js reads it.
+  try { localStorage.setItem("defaultBg", JSON.stringify("white")); } catch (e) {}
+</script>
 <script src="app.js"></script>
 <script src="closet.js"></script>
 </body>
