@@ -83,8 +83,11 @@
     '<button class="big primary cs-send" id="csSend" type="button">Send to Closet In</button>' +
     '<p class="cs-hint" id="csHint">In the share menu pick <b>Drive</b>, then choose the folder ' +
     '<b>ReLoved › Closet In</b> and tap <b>Upload</b>.</p>' +
+    '<div class="cs-hint" id="csNoShare" hidden><b>Sending needs Chrome.</b> This page is open ' +
+    'inside another app (like Google Docs). Tap ⋮ › <b>Open in Chrome</b>, or open ' +
+    '<b>ksppc.github.io/closet-studio</b> in Chrome and use ⋮ › <b>Add to Home screen</b>.</div>' +
     '<button class="cs-link cs-fallback" id="csDownload" type="button" hidden>' +
-    'Sharing isn’t available here. Download instead (this saves copies on the phone)</button>' +
+    'Or download instead (this saves copies on the phone)</button>' +
     "</div>";
   document.body.appendChild(sheet);
 
@@ -204,6 +207,7 @@
     renderThumbs();
     var ok = canShareFiles();
     $("#csDownload").hidden = ok;
+    $("#csNoShare").hidden = ok;
     $("#csHint").hidden = !ok;
     sheet.hidden = false;
     document.body.classList.add("cs-lock");
@@ -232,7 +236,11 @@
   $("#csSend").onclick = function () {
     if (!queue.length) return;
     var files = queue.map(function (q) { return q.file; });
-    if (!canShareFiles()) { $("#csDownload").hidden = false; return; }
+    if (!canShareFiles()) {
+      $("#csDownload").hidden = false; $("#csNoShare").hidden = false;
+      toast("Open this page in Chrome to send");
+      return;
+    }
     navigator.share({ files: files, title: "Closet In" }).then(function () {
       toast(files.length === 1 ? "Sent ✨ Check Closet Out in a few minutes"
         : "Sent " + files.length + " ✨ Check Closet Out in a few minutes");
